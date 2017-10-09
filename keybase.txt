@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/aaronhanuschak
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ahanuschak.com
+  * I am aaronhanuschak (https://keybase.io/aaronhanuschak) on keybase.
+  * I have a public key ASD_2VhMjXPtUXjA05TqXZxnqE5umi7vPppnLjRYAIrFUwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204ffd7351b28f0156a3ae8f21a55e1d106253a2aa35894dfe7b5e9f24b289dbff0a",
+      "host": "keybase.io",
+      "kid": "0120ffd9584c8d73ed5178c0d394ea5d9c67a84e6e9a2eef3e9a672e3458008ac5530a",
+      "uid": "939c01c66fe7534e95d4e6789a4afc19",
+      "username": "aaronhanuschak"
+    },
+    "merkle_root": {
+      "ctime": 1507585194,
+      "hash": "7cb2235202df8c457933815f169465da3c557bcd8233a1d2d42495eac9da26e6491b245b16d5c6ece63d93f3ee8327d7578c638b14f15428e49579bc3bae2fbb",
+      "hash_meta": "aab1b66917a83c028e1a8c8a5b14b7e91f79b6823b7f0379e6cfbe83b4915433",
+      "seqno": 1548080
+    },
+    "service": {
+      "hostname": "ahanuschak.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507585202,
+  "expire_in": 504576000,
+  "prev": "54f604f5db8baf990d0a5d50e9635f52bc4ca731239c390f40b57b3e8f518e84",
+  "seqno": 19,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg/9lYTI1z7VF4wNOU6l2cZ6hObpou7z6aZy40WACKxVMKp3BheWxvYWTFA017ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNGZmZDczNTFiMjhmMDE1NmEzYWU4ZjIxYTU1ZTFkMTA2MjUzYTJhYTM1ODk0ZGZlN2I1ZTlmMjRiMjg5ZGJmZjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZmZkOTU4NGM4ZDczZWQ1MTc4YzBkMzk0ZWE1ZDljNjdhODRlNmU5YTJlZWYzZTlhNjcyZTM0NTgwMDhhYzU1MzBhIiwidWlkIjoiOTM5YzAxYzY2ZmU3NTM0ZTk1ZDRlNjc4OWE0YWZjMTkiLCJ1c2VybmFtZSI6ImFhcm9uaGFudXNjaGFrIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTA3NTg1MTk0LCJoYXNoIjoiN2NiMjIzNTIwMmRmOGM0NTc5MzM4MTVmMTY5NDY1ZGEzYzU1N2JjZDgyMzNhMWQyZDQyNDk1ZWFjOWRhMjZlNjQ5MWIyNDViMTZkNWM2ZWNlNjNkOTNmM2VlODMyN2Q3NTc4YzYzOGIxNGYxNTQyOGU0OTU3OWJjM2JhZTJmYmIiLCJoYXNoX21ldGEiOiJhYWIxYjY2OTE3YTgzYzAyOGUxYThjOGE1YjE0YjdlOTFmNzliNjgyM2I3ZjAzNzllNmNmYmU4M2I0OTE1NDMzIiwic2Vxbm8iOjE1NDgwODB9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiYWhhbnVzY2hhay5jb20iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zMyJ9LCJjdGltZSI6MTUwNzU4NTIwMiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI1NGY2MDRmNWRiOGJhZjk5MGQwYTVkNTBlOTYzNWY1MmJjNGNhNzMxMjM5YzM5MGY0MGI1N2IzZThmNTE4ZTg0Iiwic2Vxbm8iOjE5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQKf2sZMo1taoEcb9N2pJR/27qFzY/yDLjGg7T23jX+TmV79BEuSjhBWKyuY0XH78zNFNj35ZxdQlQ+E0aa4NMg6oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCBbTOzK4bmZ+AYkmfbnq4wtGfF4jYHxiysl6hWfm6x7rqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/aaronhanuschak
+
+==================================================================
