@@ -1833,7 +1833,11 @@ status: operational</div>
     (function emailModal() {
         var backdrop = document.getElementById('email-modal-backdrop');
         var copyBtn  = document.getElementById('email-copy-btn');
-        var email    = atob('YWFyb25oYW51c2NoYWtAZ21haWwuY29t');
+        var email    = (function(s, k) {
+            return atob(s).split('').map(function(c, i) {
+                return String.fromCharCode(c.charCodeAt(0) ^ k[i % k.length]);
+            }).join('');
+        })('S3BNaER5XmlfYlxvS3p/YEdwVmsEclBq', [42, 17, 63, 7]);
         document.getElementById('email-display').textContent = email;
 
         document.getElementById('email-btn').addEventListener('click', function() {
