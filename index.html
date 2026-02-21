@@ -1359,7 +1359,7 @@ status: operational</div>
             <div class="email-modal-title">GET IN TOUCH</div>
             <p>Feel free to reach out — whether it's about AI strategy, enterprise architecture, or just a good conversation.</p>
             <div class="email-copy-row">
-                <span>aaronhanuschak@gmail.com</span>
+                <span id="email-display"></span>
                 <button id="email-copy-btn" class="email-copy-btn">Copy</button>
             </div>
         </div>
@@ -1833,7 +1833,8 @@ status: operational</div>
     (function emailModal() {
         var backdrop = document.getElementById('email-modal-backdrop');
         var copyBtn  = document.getElementById('email-copy-btn');
-        var email    = 'aaronhanuschak@gmail.com';
+        var email    = atob('YWFyb25oYW51c2NoYWtAZ21haWwuY29t');
+        document.getElementById('email-display').textContent = email;
 
         document.getElementById('email-btn').addEventListener('click', function() {
             backdrop.classList.add('open');
