@@ -674,7 +674,7 @@
             <li><a href="/#about">About</a></li>
             <li><a href="/#experience">Experience</a></li>
             <li><a href="/#projects">Projects</a></li>
-            <li><a href="/blog.html" class="active">Blog</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
             <li><a href="/#contact">Contact</a></li>
         </ul>
     </nav>
@@ -933,7 +933,7 @@
                 '<span class="post-card-link">Read &#8594;</span>';
 
             function openPost() {
-                window.history.pushState({}, '', '/blog.html?post=' + encodeURIComponent(slug));
+                window.history.pushState({}, '', '/blog?post=' + encodeURIComponent(slug));
                 loadPost(slug);
             }
 
@@ -1042,7 +1042,7 @@
 
     // Back button
     document.getElementById('post-back-btn').addEventListener('click', function() {
-        window.history.pushState({}, '', '/blog.html');
+        window.history.pushState({}, '', '/blog');
         document.title = 'Blog — Aaron Hanuschak';
         showListingView();
         // Reload listing if grid is empty (direct navigation to post then back)
