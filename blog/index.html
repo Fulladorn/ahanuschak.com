@@ -657,6 +657,43 @@
             color: var(--text-muted);
             font-style: italic;
         }
+
+        .post-body .table-wrap {
+            overflow-x: auto;
+            margin: var(--space-sm) 0;
+        }
+
+        .post-body table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+        }
+
+        .post-body th, .post-body td {
+            padding: 0.6rem 1rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        .post-body th {
+            background: rgba(0, 180, 216, 0.08);
+            color: var(--cyan);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+        }
+
+        .post-body tr:nth-child(even) td {
+            background: rgba(10, 20, 35, 0.4);
+        }
+
+        .post-body tr:last-child td {
+            color: var(--text);
+            font-weight: 700;
+            border-top: 1px solid rgba(0, 180, 216, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -846,12 +883,56 @@
         }).join('');
     }
 
+    function blockPlainText(block) {
+        return (block.children || []).map(function(s) { return s.text || ''; }).join('');
+    }
+
+    function isTableRow(block) {
+        if (!block || block._type !== 'block' || block.listItem) return false;
+        var t = blockPlainText(block).trim();
+        return t.charAt(0) === '|' && t.charAt(t.length - 1) === '|';
+    }
+
+    function isSeparatorRow(text) {
+        return /^\|[\s\-|:]+\|$/.test(text.trim());
+    }
+
+    function parseTableCells(text) {
+        return text.trim().replace(/^\||\|$/g, '').split('|').map(function(c) { return c.trim(); });
+    }
+
     function renderPortableTextFull(blocks) {
         if (!blocks || !blocks.length) return '';
         var html = '';
         var i = 0;
         while (i < blocks.length) {
             var block = blocks[i];
+
+            // Table detection — collect consecutive pipe-row blocks
+            if (isTableRow(block)) {
+                var rows = [];
+                while (i < blocks.length && isTableRow(blocks[i])) {
+                    rows.push(blockPlainText(blocks[i]).trim());
+                    i++;
+                }
+                // Filter out separator rows, mark header
+                var dataRows = rows.filter(function(r) { return !isSeparatorRow(r); });
+                if (dataRows.length) {
+                    html += '<div class="table-wrap"><table>';
+                    dataRows.forEach(function(row, idx) {
+                        var cells = parseTableCells(row);
+                        var tag = idx === 0 ? 'th' : 'td';
+                        html += '<tr>' + cells.map(function(c) {
+                            // strip inner bold markdown (**text**) for display
+                            var content = c.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                            return '<' + tag + '>' + content + '</' + tag + '>';
+                        }).join('') + '</tr>';
+                    });
+                    html += '</table></div>';
+                }
+                continue;
+            }
+
             if (block._type === 'block') {
                 var style = block.style || 'normal';
                 var inner = renderSpansWithMarkDefs(block.children || [], block.markDefs);
