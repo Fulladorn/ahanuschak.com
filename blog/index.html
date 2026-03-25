@@ -694,6 +694,293 @@
             font-weight: 700;
             border-top: 1px solid rgba(0, 180, 216, 0.3);
         }
+
+        /* ============================================
+           RAG vs CACHE-AUG ANALYZER WIDGET
+           ============================================ */
+        .rca-widget {
+            width: 100%;
+            max-width: 900px;
+            margin: var(--space-md) 0;
+            padding: var(--space-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .rca-header { margin-bottom: var(--space-sm); }
+        .rca-title {
+            font-family: var(--font-mono);
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 0.4rem;
+        }
+        .rca-section {
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--border);
+        }
+        .rca-section-title {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--cyan-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.75rem;
+        }
+        .rca-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+        .rca-row-wrap { flex-wrap: wrap; }
+        .rca-field { display: flex; flex-direction: column; gap: 0.3rem; min-width: 160px; flex: 1; }
+        .rca-field-slider { min-width: 100%; }
+        .rca-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rca-slider-val { color: var(--cyan); font-weight: 700; }
+        .rca-select, .rca-input {
+            background: rgba(10, 20, 35, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            padding: 0.45rem 0.6rem;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+        .rca-select:focus, .rca-input:focus { border-color: rgba(0, 180, 216, 0.5); }
+        .rca-select option { background: #0a1623; }
+        .rca-input[type="number"] { max-width: 120px; }
+        .rca-range {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+        .rca-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px rgba(0, 180, 216, 0.5);
+            cursor: pointer;
+        }
+        .rca-range::-moz-range-thumb {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--cyan);
+            border: none;
+            cursor: pointer;
+        }
+        .rca-toggle {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            align-self: flex-start;
+        }
+        .rca-toggle-on {
+            border-color: rgba(0, 180, 216, 0.5);
+            color: var(--cyan);
+            background: rgba(0, 180, 216, 0.08);
+        }
+        .rca-derived {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: var(--space-sm);
+            padding: 0.75rem;
+            background: rgba(0, 180, 216, 0.04);
+            border: 1px solid rgba(0, 180, 216, 0.12);
+            border-radius: 8px;
+        }
+        .rca-pill {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            padding: 0.4rem 0.7rem;
+            background: rgba(0, 180, 216, 0.06);
+            border: 1px solid rgba(0, 180, 216, 0.15);
+            border-radius: 6px;
+            min-width: 120px;
+        }
+        .rca-pill-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rca-pill-value {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+        .rca-alerts { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .rca-alert {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(255, 180, 0, 0.06);
+            border: 1px solid rgba(255, 180, 0, 0.3);
+            border-radius: 6px;
+            color: #ffb400;
+            line-height: 1.5;
+        }
+        .rca-alert-info {
+            background: rgba(0, 180, 216, 0.05);
+            border-color: rgba(0, 180, 216, 0.2);
+            color: var(--text-muted);
+        }
+        .rca-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        .rca-card {
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .rca-card-green {
+            border-color: rgba(0, 200, 100, 0.3);
+            background: rgba(0, 200, 100, 0.05);
+        }
+        .rca-card-blue {
+            border-color: rgba(0, 180, 216, 0.3);
+            background: rgba(0, 180, 216, 0.05);
+        }
+        .rca-card-title {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+        .rca-card-value {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .rca-card-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .rca-banner {
+            margin-top: var(--space-sm);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        .rca-banner-green {
+            background: rgba(0, 200, 100, 0.07);
+            border: 1px solid rgba(0, 200, 100, 0.3);
+            color: rgba(0, 230, 120, 0.9);
+        }
+        .rca-banner-blue {
+            background: rgba(0, 180, 216, 0.07);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            color: var(--cyan);
+        }
+        .rca-tabs {
+            display: flex;
+            gap: 0;
+            margin-top: var(--space-sm);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .rca-tab-btn {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.2s, border-color 0.2s;
+            margin-bottom: -1px;
+        }
+        .rca-tab-btn:hover { color: var(--text); }
+        .rca-tab-active { border-bottom-color: var(--cyan) !important; color: var(--cyan) !important; }
+        .rca-panel { display: none; padding-top: var(--space-sm); }
+        .rca-panel-active { display: block; }
+        .rca-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+        }
+        .rca-bd-col {}
+        .rca-bd-head {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cyan-dim);
+            margin-bottom: 0.5rem;
+        }
+        .rca-bd-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+        }
+        .rca-bd-table td {
+            padding: 0.3rem 0.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+        .rca-bd-table tfoot td {
+            border-top: 1px solid rgba(0, 180, 216, 0.2);
+            border-bottom: none;
+            color: var(--text);
+            padding-top: 0.5rem;
+        }
+        .rca-bd-val { text-align: right; font-family: var(--font-mono); white-space: nowrap; }
+        .rca-chart-wrap { height: 280px; position: relative; }
+        .rca-assumptions {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            padding-left: 1.2rem;
+        }
+        .rca-assumptions li { margin-bottom: 0.4rem; }
+        .rca-assumptions strong { color: var(--text); }
+        @media (max-width: 640px) {
+            .rca-summary { grid-template-columns: 1fr; }
+            .rca-breakdown { grid-template-columns: 1fr; }
+            .rca-widget { padding: var(--space-sm); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .rca-toggle, .rca-tab-btn, .rca-select, .rca-input { transition: none; }
+        }
     </style>
 </head>
 <body>
@@ -839,6 +1126,9 @@
             } else if (block._type === 'code') {
                 var lang = block.language ? ' data-lang="' + esc(block.language) + '"' : '';
                 html += '<pre' + lang + '><code>' + esc(block.code || '') + '</code></pre>';
+            } else if (block._type === 'ragCacheAnalyzer') {
+                var wh = block.heading ? esc(block.heading) : 'Interactive Cost Analyzer';
+                html += '<div class="rag-cache-widget-placeholder" data-heading="' + wh + '" data-key="' + esc(block._key || '') + '"></div>';
             }
             i++;
         }
@@ -955,6 +1245,9 @@
             } else if (block._type === 'code') {
                 var lang = block.language ? ' data-lang="' + esc(block.language) + '"' : '';
                 html += '<pre' + lang + '><code>' + esc(block.code || '') + '</code></pre>';
+            } else if (block._type === 'ragCacheAnalyzer') {
+                var wh = block.heading ? esc(block.heading) : 'Interactive Cost Analyzer';
+                html += '<div class="rag-cache-widget-placeholder" data-heading="' + wh + '" data-key="' + esc(block._key || '') + '"></div>';
             }
             i++;
         }
@@ -1082,6 +1375,7 @@
         }
 
         document.getElementById('post-body').innerHTML = renderPortableTextFull(post.body || []);
+        if (window.initRagCacheWidgets) window.initRagCacheWidgets();
     }
 
     function showPostError(msg) {
@@ -1199,5 +1493,6 @@
     route();
     initScrollAnimations();
     </script>
+    <script src="/blog/rag-cache-analyzer.js"></script>
 </body>
 </html>
