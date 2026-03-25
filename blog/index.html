@@ -969,11 +969,13 @@
     function showPostView() {
         document.getElementById('listing-view').style.display = 'none';
         document.getElementById('post-view').style.display = 'block';
+        window.scrollTo(0, 0);
     }
 
     function showListingView() {
         document.getElementById('listing-view').style.display = 'block';
         document.getElementById('post-view').style.display = 'none';
+        window.scrollTo(0, 0);
     }
 
     function renderPost(post) {
